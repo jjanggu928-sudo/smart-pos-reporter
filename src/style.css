@@ -1,0 +1,45 @@
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+/* --- Base Styles --- */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #FAFAFA; /* Light gray text */
+}
+
+.main > div {
+    background: transparent;
+}
+
+/* --- Custom Dark Theme --- */
+[data-testid="stAppViewContainer"] > .main {
+    background: linear-gradient(180deg, #1E1E1E 0%, #121212 100%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #FFFFFF;
+}
+
+/* --- Card-like containers for charts and data --- */
+[data-testid="stVerticalBlock"] > [data-testid="stHorizontalBlock"] > .st-emotion-cache-1jicfl2 {
+    background-color: #2a2a2e;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 1px solid #3c3c40;
+}
+
+[data-testid="stVerticalBlock"] > [data-testid="stHorizontalBlock"] > .st-emotion-cache-1jicfl2 h3 {
+    color: #E0E0E0;
+    border-bottom: 1px solid #444;
+    padding-bottom: 8px;
+}
+
+/* --- Sidebar styling --- */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #222225, #1A1A1D);
+    border-right: 1px solid #3c3c40;
+}
+[data-testid="stSidebar"] h2 {
+    color: #FFFFFF;
+}
