@@ -1,0 +1,73 @@
+[
+  {
+    "transaction_id": "T20260209100000001",
+    "timestamp": "2026-02-09T10:00:00Z",
+    "store_id": "S001",
+    "items": [
+      { "item_name": "아메리카노", "price": 4500, "quantity": 2 },
+      { "item_name": "카페라떼", "price": 5000, "quantity": 1 }
+    ]
+  },
+  {
+    "transaction_id": "T20260209133000002",
+    "timestamp": "2026-02-09T13:30:00Z",
+    "store_id": "S001",
+    "items": [
+      { "item_name": "치즈케이크", "price": 6000, "quantity": 1 },
+      { "item_name": "아메리카노", "price": 4500, "quantity": 1 }
+    ]
+  },
+  {
+    "transaction_id": "T20260210091500001",
+    "timestamp": "2026-02-10T09:15:00Z",
+    "store_id": "S001",
+    "items": [
+      { "item_name": "카푸치노", "price": 5000, "quantity": 1 },
+      { "item_name": "베이글", "price": 3500, "quantity": 2 }
+    ]
+  },
+  {
+    "transaction_id": "T20260211180000001",
+    "timestamp": "2026-02-11T18:00:00Z",
+    "store_id": "S001",
+    "items": [
+      { "item_name": "카페라떼", "price": 5000, "quantity": 2 }
+    ]
+  },
+  {
+    "transaction_id": "T20260212110000001",
+    "timestamp": "2026-02-12T11:00:00Z",
+    "store_id": "S001",
+    "items": [
+      { "item_name": "아메리카노", "price": 4500, "quantity": 3 },
+      { "item_name": "치즈케이크", "price": 6000, "quantity": 1 },
+      { "item_name": "카푸치노", "price": 5000, "quantity": 1 }
+    ]
+  },
+  {
+    "transaction_id": "T20260213142000001",
+    "timestamp": "2026-02-13T14:20:00Z",
+    "store_id": "S001",
+    "items": [
+      { "item_name": "베이글", "price": 3500, "quantity": 1 },
+      { "item_name": "카페라떼", "price": 5000, "quantity": 1 }
+    ]
+  },
+  {
+    "transaction_id": "T20260214165000001",
+    "timestamp": "2026-02-14T16:50:00Z",
+    "store_id": "S001",
+    "items": [
+      { "item_name": "아메리카노", "price": 4500, "quantity": 2 }
+    ]
+  },
+  {
+    "transaction_id": "T20260215173000001",
+    "timestamp": "2026-02-15T17:30:00Z",
+    "store_id": "S001",
+    "items": [
+      { "item_name": "카푸치노", "price": 5000, "quantity": 1 },
+      { "item_name": "치즈케이크", "price": 6000, "quantity": 1 }
+    ]
+  }
+]
