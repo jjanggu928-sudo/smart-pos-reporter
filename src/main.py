@@ -22,7 +22,7 @@ import pandas as pd
 from typing import Optional
 
 # 백엔드 모듈 임포트
-from api.pos_client import MockPOSClient
+from api.supabase_client import SupabasePOSClient
 from core.analyzer import SalesAnalyzer
 
 @st.cache_data
@@ -36,10 +36,12 @@ def load_and_analyze_data() -> Optional[SalesAnalyzer]:
                                  데이터 로딩 또는 분석 실패 시 None을 반환합니다.
     """
     try:
-        client = MockPOSClient()
+        # 데이터 소스를 Supabase 클라이언트로 교체
+        client = SupabasePOSClient()
         sales_data = client.fetch_weekly_sales_data()
+        
         if not sales_data:
-            st.error("매출 데이터를 불러오는 데 실패했습니다. 원본 데이터 파일을 확인해주세요.")
+            st.error("매출 데이터를 불러오는 데 실패했습니다. Supabase DB에 데이터가 있는지, 네트워크 연결을 확인해주세요.")
             return None
         
         analyzer = SalesAnalyzer(sales_data)
