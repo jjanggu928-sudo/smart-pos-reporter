@@ -19,6 +19,7 @@ Smart POS Insight Reporter - 메인 대시보드
 """
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 from typing import Optional
 
 # 백엔드 모듈 임포트
@@ -63,11 +64,39 @@ def display_dow_analysis(analyzer: SalesAnalyzer):
         col1, col2 = st.columns(2)
         with col1:
             st.subheader("총 매출액 (원)")
-            st.bar_chart(dow_result['total_sales'])
+            fig_sales = px.bar(
+                dow_result,
+                x=dow_result.index,
+                y='total_sales',
+                labels={'x': '요일', 'total_sales': '총 매출액'},
+                template='plotly_white',
+                text_auto=True
+            )
+            fig_sales.update_layout(
+                yaxis_title="매출액 (원)",
+                xaxis_title="",
+                showlegend=False
+            )
+            fig_sales.update_traces(texttemplate='%{y:,.0f}', textposition='outside')
+            st.plotly_chart(fig_sales, use_container_width=True)
         
         with col2:
             st.subheader("거래 건수")
-            st.bar_chart(dow_result['transaction_count'])
+            fig_trans = px.bar(
+                dow_result,
+                x=dow_result.index,
+                y='transaction_count',
+                labels={'x': '요일', 'transaction_count': '거래 건수'},
+                template='plotly_white',
+                text_auto=True
+            )
+            fig_trans.update_layout(
+                yaxis_title="거래 건수",
+                xaxis_title="",
+                showlegend=False
+            )
+            fig_trans.update_traces(texttemplate='%{y:,}', textposition='outside')
+            st.plotly_chart(fig_trans, use_container_width=True)
 
         with st.expander("요일별 상세 데이터 보기"):
             st.dataframe(dow_result.style.format({
