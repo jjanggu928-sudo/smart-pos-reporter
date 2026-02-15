@@ -56,14 +56,13 @@ def load_and_analyze_data() -> Optional[SalesAnalyzer]:
 
 def display_dow_analysis(analyzer: SalesAnalyzer):
     """요일별 분석 결과를 대시보드에 표시합니다."""
-    st.header("📊 요일별 매출 분석")
+    # st.header("📊 요일별 매출 분석") # 탭 이름으로 대체
     dow_result = analyzer.aggregate_sales_by_dow()
     
     if dow_result is not None:
         col1, col2 = st.columns(2)
         with col1:
             st.subheader("총 매출액 (원)")
-            # Streamlit은 인덱스를 x축으로, 컬럼을 y축으로 자동으로 인식합니다.
             st.bar_chart(dow_result['total_sales'])
         
         with col2:
@@ -80,7 +79,7 @@ def display_dow_analysis(analyzer: SalesAnalyzer):
 
 def display_menu_analysis(analyzer: SalesAnalyzer):
     """메뉴별 분석 결과를 대시보드에 표시합니다."""
-    st.header("🍕 메뉴별 판매 분석")
+    # st.header("🍕 메뉴별 판매 분석") # 탭 이름으로 대체
     menu_result = analyzer.aggregate_sales_by_menu()
 
     if menu_result is not None:
@@ -101,13 +100,17 @@ def main():
     analyzer = load_and_analyze_data()
 
     if analyzer:
-        # 분석 결과 표시
-        display_dow_analysis(analyzer)
-        st.divider()
-        display_menu_analysis(analyzer)
+        # Phase 1 UI 개선: 탭과 사이드바 적용
+        tab1, tab2 = st.tabs(["📊 요일별 매출 분석", "🍕 메뉴별 판매 분석"])
 
-        # 원본 데이터 표시
-        with st.expander("전체 거래 데이터 원본 보기"):
+        with tab1:
+            display_dow_analysis(analyzer)
+
+        with tab2:
+            display_menu_analysis(analyzer)
+
+        # 원본 데이터는 사이드바에 표시
+        with st.sidebar.expander("전체 거래 데이터 원본 보기"):
             st.dataframe(analyzer.df)
 
 if __name__ == "__main__":
